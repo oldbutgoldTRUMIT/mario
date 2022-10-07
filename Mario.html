@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprite animation</title>
+  <!-- Remix icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="scene">
+    <input type="checkbox" checked>
+    <div class="mario"></div>
+  </div>
+
+</body>
+
+<style>
+    /* ======================== */
+/* 
+    Ignore the following styles. They are not important to achieve the effect.
+    I'm only using them for looks (overall page background/font styles/centering content).
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #151515;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    padding: 5px;
+    color: #fff;
+}
+
+/* ======================== */
+
+.scene {
+    width: 230px;
+    height: 200px;
+    background: url('https://github.com/JulioCodesSM/CodeSnippets/blob/main/SpriteAnimation/background.jpg?raw=true') 0 90% no-repeat;
+    background-size: cover;
+    background-size: 500% 400%;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: background-position 15s linear;
+}
+
+.scene:hover {
+    background-position: 150% 90%;
+}
+
+.mario {
+    width: 65px;
+    height: 100px;
+    background: url('https://github.com/JulioCodesSM/CodeSnippets/blob/main/SpriteAnimation/mario_sprite.png?raw=true') no-repeat;
+    transform: translate(10px, 85px);
+    animation: run .5s infinite;
+}
+
+input[type='checkbox'] {
+    display: none;
+}
+
+input:checked+.mario {
+    animation-timing-function: step-end;
+}
+
+@keyframes run {
+    25% {
+        background-position: -85px 0;
+    }
+
+    50% {
+        width: 45px;
+        background-position: -150px 0;
+    }
+
+    75% {
+        width: 55px;
+        background-position: -197px 0;
+    }
+}
+</style>
+</html>
